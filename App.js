@@ -19,13 +19,13 @@ function UserScreen({ navigation }) {
     contraseña: '',
   });
 
-  const onSub = data => {
-    // if (usuario == "juanes" & rol == "admin") {
+  const onSub = () => {
+    if (usuario == "juanes" & rol == "admin") {
     setUsuario("")
     setRol("")
     setContraseña("");
     navigation.navigate('Cuenta', { usuario: usuario })
-    // }
+    }
   }
 
   // const validate = () => {
@@ -254,6 +254,7 @@ function ProfileScreen({ route }) {
       />
       {errors.saldo?.type == "required" && <Text style={{ color: 'red' }}>Saldo requerido</Text>}
       {errors.saldo?.type == "pattern" && <Text style={{ color: 'red' }}>campos invalidos</Text>}
+      {errors.saldo?.type == "pattern" && <Text style={{ color: 'red' }}>solo numeros</Text>}
       {errors.saldo?.type == "max" && <Text style={{ color: 'red' }}>El limite del salario son 10000000</Text>}
       {errors.saldo?.type == "min" && <Text style={{ color: 'red' }}>El salario no puede ser menor a 1000000</Text>}
       <Text>{'\n'}</Text>
